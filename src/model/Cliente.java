@@ -6,13 +6,14 @@ import java.util.List;
 public abstract class Cliente {
     private String nome;
     private String email;
-    private double saldo;
     private int id;
+    private double saldo;
     private List<String> historicoCompras;
+    private static int contadorId = 1; 
 
-    public Cliente(String nome, int id, String email, double saldo){
+    public Cliente(String nome, String email, double saldo){
         this.nome = nome;
-        this.id = id;
+        this.id = contadorId++;
         this.email = email;
         this.saldo = saldo;
         this.historicoCompras = new ArrayList<>();
@@ -25,9 +26,6 @@ public abstract class Cliente {
         return nome;
     }
 
-    public void setId(int id){
-        this.id = id;
-    }
     public int getId(){
         return id;
     }
@@ -81,9 +79,9 @@ public abstract class Cliente {
    @Override
    public String toString() {
         return "Cleinte: " + nome +
-                "Id: " + id +
-                "Email: " + email +
-                "Saldo: " + String.format("%.2f", saldo);
+                " Id: " + id +
+                " Email: " + email +
+                " Saldo: " + String.format("%.2f", saldo);
 
    }
 
