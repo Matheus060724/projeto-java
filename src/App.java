@@ -269,9 +269,6 @@ public class App {
     }
 
 
-    // ====================================
-    // MÉTODOS DE BUSCA
-    // ====================================
 
     private static Cliente buscarClientePorId(List<Cliente> lista, int id) {
         for (Cliente c : lista)
