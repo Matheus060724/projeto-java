@@ -1,4 +1,8 @@
+package model;
+
+
 public class Jogo {
+    private static int contadorId = 1; 
 
     private int id;                 
     private String titulo;      
@@ -7,8 +11,8 @@ public class Jogo {
     private double preco;           
     private boolean disponivel;     
 
-    public Jogo(int id, String titulo, String genero, int anoLancamento, double preco, boolean disponivel) {
-        this.id = id;
+    public Jogo(String titulo, String genero, int anoLancamento, double preco, boolean disponivel) {
+        this.id = contadorId++;
         this.titulo = titulo;
         this.genero = genero;
         setAnoLancamento(anoLancamento); 
@@ -20,10 +24,6 @@ public class Jogo {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTitulo() {
