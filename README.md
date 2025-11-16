@@ -1,18 +1,80 @@
-## Getting Started
+# Documentação do Sistema de Jogos – Classes e Responsabilidades
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## 1. Classe `Jogo`
 
-## Folder Structure
+Representa um jogo cadastrado no sistema.
 
-The workspace contains two folders by default, where:
+### Atributos:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+*   `id` (int): Identificador único.
+*   `nome` (String): Nome do jogo.
+*   `genero` (String): Gênero.
+*   `anoLancamento` (int): Ano de lançamento.
+*   `preco` (double): Preço.
+*   `disponivel` (boolean): Status.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+### Métodos:
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+*   `getId()`
+*   `getNome()`
+*   `setNome()`
+*   `setGenero()`
+*   `setAnoLancamento()`
+*   `setPreco()`
+*   `setDisponivel()`
 
-## Dependency Management
+## 2. Classe `Cliente`
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Representa um cliente do sistema.
+
+### Atributos:
+
+*   `idUsuario` (int)
+*   `nome` (String)
+*   `email` (String)
+*   `saldo` (double)
+*   `historicoCompras` (List<Venda>)
+
+### Métodos:
+
+*   `getIdUsuario()`
+*   `getNome()`
+*   `getEmail()`
+*   `getSaldo()`
+*   `setNome()`
+*   `setEmail()`
+*   `setSaldo()`
+*   `adicionarHistorico()`
+*   `aplicarDesconto()`
+
+## 3. Classe `ClienteRegular`
+
+Cliente comum sem benefícios especiais.
+
+### Métodos:
+
+*   `aplicarDesconto(preco)`: Implementação padrão sem desconto.
+
+## 4. Classe `ClientePremium`
+
+Cliente com benefícios e descontos.
+
+### Atributos:
+
+*   `percentualDesconto` (double)
+
+### Métodos:
+
+*   `getPercentualDesconto()`
+*   `aplicarDesconto(preco)`
+
+## 5. Classe `Venda`
+
+Representa a operação de compra.
+
+### Atributos:
+
+*   `cliente` (Cliente)
+*   `jogo` (Jogo)
+*   `valorPago` (double)
+*   `dataHora` (LocalDateTime)
